@@ -38,6 +38,7 @@ public class Control_UI {
     public int vol = 0;
     public int channel = 0;
     public String number = "";
+    public boolean estaEncendido = false;
 
     private void presionarNumero(String digito) {
         if (number.length() >= 3) {
@@ -114,10 +115,18 @@ public class Control_UI {
                 }
             }
         });
+        PowerLed.setOpaque(true);
+        PowerLed.setBackground(new Color(120, 40, 31));
         Power.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PowerLed.setBackground(new Color(20, 90, 50));
+                if (!estaEncendido){
+                    PowerLed.setBackground(new Color(20, 90, 50));
+                    estaEncendido= true;
+                } else {
+                    PowerLed.setBackground(new Color(120, 40, 31));
+                    estaEncendido = false;
+                }
             }
         });
         comboBoxInput.addActionListener(new ActionListener() {
