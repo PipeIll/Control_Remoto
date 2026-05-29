@@ -32,6 +32,8 @@ public class Control_UI {
     private JProgressBar volProgress;
     private JLabel inputSource;
     private JPanel mainPanel;
+    private JPanel PowerLed;
+    private JLabel Power_name;
 
     public int vol = 0;
     public int channel = 0;
@@ -110,6 +112,12 @@ public class Control_UI {
                     channel = 999;
                     ch_text.setText(String.valueOf(channel));
                 }
+            }
+        });
+        Power.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PowerLed.setBackground(new Color(20, 90, 50));
             }
         });
         comboBoxInput.addActionListener(new ActionListener() {
